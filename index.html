@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPU Campus Navigator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Campus Navigator home">
+      <span class="brand-mark">L</span>
+      <span><strong>Campus Navigator</strong><small>LPU · Student project demo</small></span>
+    </a>
+    <nav><a href="#find-route">Find a route</a><a href="#how-it-works">How it works</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">CAMPUS WAYFINDING MADE SIMPLE</span>
+        <h1>Lost on campus?<br><span>Find your way.</span></h1>
+        <p>Choose a destination to see a simple route guide, landmarks and helpful directions.</p>
+        <a class="button button-light" href="#find-route">Find my route <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="map-card">
+          <div class="map-top"><span>DEMO CAMPUS MAP</span><span class="map-dot"></span></div>
+          <div class="mini-map">
+            <span class="road road-one"></span><span class="road road-two"></span>
+            <span class="building b1">LIBRARY</span><span class="building b2">BLOCK 31</span>
+            <span class="building b3">BLOCK 34</span><span class="building b4">SPORTS<br>GROUND</span>
+            <span class="route-line"></span><span class="pin pin-start">START</span><span class="pin pin-end">34</span>
+          </div>
+          <p class="map-note">Illustrative map — not an official LPU map</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice" role="note">
+      <span class="notice-icon">!</span>
+      <p><strong>Student prototype:</strong> The locations, map and route times on this website are examples for demonstration only. Verify real campus locations and directions before using them for navigation.</p>
+    </section>
+
+    <section class="route-section" id="find-route">
+      <div class="section-heading">
+        <span class="eyebrow">QUICK SEARCH</span>
+        <h2>Where do you want to go?</h2>
+        <p>Choose one of the example destinations below.</p>
+      </div>
+      <div class="search-panel">
+        <label for="destination">Destination</label>
+        <div class="search-row">
+          <select id="destination">
+            <option value="block34">Block 34 · Example destination</option>
+            <option value="library">Central Library · Example destination</option>
+            <option value="sports">Sports Ground · Example destination</option>
+            <option value="block31">Block 31 · Example destination</option>
+          </select>
+          <button class="button" id="findButton">Find route</button>
+        </div>
+        <p class="field-help">Starting point: <strong>Demo Gate 2</strong> (example only)</p>
+      </div>
+
+      <div class="route-results" id="routeResults" aria-live="polite">
+        <div class="route-title">
+          <div><span class="eyebrow">YOUR SAMPLE ROUTE</span><h3 id="routeName">Demo Gate 2 → Block 34</h3></div>
+          <span class="time-pill" id="routeTime">Example: 10–12 min</span>
+        </div>
+        <div class="route-layout">
+          <div class="map-box">
+            <div class="map-label"><span class="legend-dot start-dot"></span> Start <span class="legend-dot end-dot"></span> Destination</div>
+            <div class="route-map" id="routeMap" aria-label="Illustrative schematic campus map">
+              <div class="map-road road-a"></div><div class="map-road road-b"></div><div class="map-road road-c"></div>
+              <div class="map-place place-library">Library</div>
+              <div class="map-place place-b31">Block 31</div>
+              <div class="map-place place-b34">Block 34</div>
+              <div class="map-place place-sports">Sports<br>Ground</div>
+              <div class="map-start">Gate 2</div>
+              <div class="map-destination" id="mapDestination">Block 34</div>
+              <svg class="route-svg" viewBox="0 0 500 330" preserveAspectRatio="none" aria-hidden="true">
+                <path id="routePath" d="M65 285 L65 225 L150 225 L150 160 L260 160 L260 95 L365 95" />
+              </svg>
+            </div>
+            <p class="map-caption">Schematic illustration only — not to scale.</p>
+          </div>
+          <div class="steps-box">
+            <h4>Follow these steps</h4>
+            <ol id="directions">
+              <li>Start at Demo Gate 2.</li>
+              <li>Walk towards the library landmark.</li>
+              <li>Follow the example Block 31 direction sign.</li>
+              <li>Continue to the Block 34 example destination.</li>
+            </ol>
+            <div class="tip"><strong>Helpful tip</strong><p>Look for clear block numbers and landmark signs. If you are unsure, ask campus security or the information desk.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="section-heading">
+        <span class="eyebrow">SIMPLE STEPS</span>
+        <h2>How it works</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-number">01</span><h3>Choose a place</h3><p>Select a block or landmark from the destination list.</p></article>
+        <article class="feature"><span class="feature-number">02</span><h3>Check the route</h3><p>See example directions, landmarks and a simple map.</p></article>
+        <article class="feature"><span class="feature-number">03</span><h3>Follow signs</h3><p>Use verified signs and ask campus staff if you need help.</p></article>
+      </div>
+    </section>
+
+    <section class="feedback">
+      <div><span class="eyebrow">HELP US IMPROVE</span><h2>Was this route guide easy to understand?</h2><p>Your feedback can help us improve the student prototype.</p></div>
+      <div class="feedback-actions">
+        <button class="feedback-button" data-feedback="Yes, it was easy">👍 Yes</button>
+        <button class="feedback-button" data-feedback="It needs improvement">🛠 Needs improvement</button>
+      </div>
+      <p class="feedback-message" id="feedbackMessage" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer><span>Campus Navigator · INT335 Design Thinking project</span><span>Prototype demo — not an official LPU navigation service</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
